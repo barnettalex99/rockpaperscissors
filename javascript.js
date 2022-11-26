@@ -1,5 +1,7 @@
 game();
 
+// gets the computer's choice for the rock paper scissors game
+
 function getComputerChoice(){
     let computerChoiceNum;
     let computerChoice;
@@ -16,6 +18,7 @@ function getComputerChoice(){
     return computerChoice;
 }
 
+// plays a single round of rock paper scissors
 function playRound(computerInput, playerInput){
     let outcome;
     if((computerInput == "rock" && playerInput == "rock")|| (computerInput == "paper" && playerInput == "paper") || (computerInput == "scissors" && playerInput == "scissors")){
@@ -49,6 +52,7 @@ function playRound(computerInput, playerInput){
     return outcome;
 }
 
+// plays five rounds of rock paper scissors and determines the winner
 function game(){
     currentPlayerInput = "";
     currentComputerInput = "";

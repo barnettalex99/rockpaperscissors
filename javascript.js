@@ -1,4 +1,4 @@
-game();
+//game();
 
 // gets the computer's choice for the rock paper scissors game
 
@@ -19,7 +19,8 @@ function getComputerChoice(){
 }
 
 // plays a single round of rock paper scissors
-function playRound(computerInput, playerInput){
+function playRound(playerInput){
+    computerInput = getComputerChoice();
     let outcome;
     if((computerInput == "rock" && playerInput == "rock")|| (computerInput == "paper" && playerInput == "paper") || (computerInput == "scissors" && playerInput == "scissors")){
         console.log("It's a tie!");
@@ -52,7 +53,7 @@ function playRound(computerInput, playerInput){
     return outcome;
 }
 
-// plays five rounds of rock paper scissors and determines the winner
+/* old function that played 5 rounds
 function game(){
     currentPlayerInput = "";
     currentComputerInput = "";
@@ -89,3 +90,4 @@ function game(){
         console.log("You win");
     }
 }
+*/

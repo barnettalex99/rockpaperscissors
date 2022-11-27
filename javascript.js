@@ -1,4 +1,7 @@
-//game();
+
+//sets global variables used
+let playerScore = 0;
+let computerScore = 0;
 
 // gets the computer's choice for the rock paper scissors game
 
@@ -53,7 +56,26 @@ function playRound(playerInput){
     return outcome;
 }
 
-/* old function that played 5 rounds
+function updateGame(roundOutcome){
+
+    if(roundOutcome == "lose"){
+        alert("Computer wins.");
+        computerScore++;
+    }
+    else if(roundOutcome == "win"){
+        playerScore++;
+        alert("You win.");
+    }
+    else{
+        console.log("Try again.");
+        alert("Tie.");
+    }
+    if(computerScore == 5 || playerScore ==5){
+        alert("Game over. Computer score: " + computerScore + " and Player score: " + playerScore);
+    }
+}
+
+/* old function that played 5 rounds in a row that was necessary when there was no button UI
 function game(){
     currentPlayerInput = "";
     currentComputerInput = "";

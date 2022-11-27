@@ -26,7 +26,6 @@ function playRound(playerInput){
     computerInput = getComputerChoice();
     let outcome;
     if((computerInput == "rock" && playerInput == "rock")|| (computerInput == "paper" && playerInput == "paper") || (computerInput == "scissors" && playerInput == "scissors")){
-        console.log("It's a tie!");
         outcome = "tie";
     }
     else if(computerInput == "rock" && playerInput == "paper"){
@@ -57,22 +56,31 @@ function playRound(playerInput){
 }
 
 function updateGame(roundOutcome){
+    const roundContainer = document.querySelector('.round-result');
+    const finalContainer = document.querySelector('.final-result');
 
     if(roundOutcome == "lose"){
-        alert("Computer wins.");
         computerScore++;
+        let content = document.createElement('div'); 
+        roundContainer.appendChild(content);
+        content.textContent = 'Computer wins. Computer score: ' + computerScore + '. Player score: ' + playerScore + '.';
     }
     else if(roundOutcome == "win"){
         playerScore++;
-        alert("You win.");
+        let content = document.createElement('div'); 
+        roundContainer.appendChild(content);
+        content.textContent = 'You win. Computer score: ' + computerScore + '. Player score: ' + playerScore + '.';
     }
     else{
-        console.log("Try again.");
-        alert("Tie.");
+        let content = document.createElement('div'); 
+        roundContainer.appendChild(content);
+        content.textContent = 'Tie. Computer score: ' + computerScore + '. Player score: ' + playerScore + '.';
     }
     if(computerScore == 5 || playerScore ==5){
-        alert("Game over. Computer score: " + computerScore + " and Player score: " + playerScore);
+        finalContainer.textContent = 'Game over. Final computer score: ' + computerScore + '. Final player score: ' + playerScore + '.';
+        document.getElementById("button-container").style.visibility = "hidden";
     }
+    
 }
 
 /* old function that played 5 rounds in a row that was necessary when there was no button UI

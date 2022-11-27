@@ -9,8 +9,20 @@
     <script src="javascript.js"></script>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>Trial HTML</p>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div id ="button-container">
+            <button type="button" onclick="updateGame(playRound('rock'))">Rock</button>
+            <button type="button" onclick="updateGame(playRound('paper'))">Paper</button>
+            <button type="button" onclick="updateGame(playRound('scissors'))">Scissors</button>
+        </div>
+        <div class = "round-result">
+        
+        </div>
+        <div class = "final-result">
+
+        </div>
+    </div>
     <script></script>
 </body>
 </html>

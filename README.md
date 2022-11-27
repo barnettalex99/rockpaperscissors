@@ -1,0 +1,3 @@
+This is an interface that allows a user to play a game to 5 of rock paper scissors against a computer by clicking buttons at the top of the window. It then reports the score after every round. The game finishes when the first person reaches 5 points.
+
+This project demonstrates my ability to use javascript and logic to build a game. It also demonstrates my proficiency in using html, css and javascript together to build an effective user interface. 

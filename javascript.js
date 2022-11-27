@@ -1,4 +1,9 @@
-game();
+
+//sets global variables used
+let playerScore = 0;
+let computerScore = 0;
+
+// gets the computer's choice for the rock paper scissors game
 
 function getComputerChoice(){
     let computerChoiceNum;
@@ -16,10 +21,11 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function playRound(computerInput, playerInput){
+// plays a single round of rock paper scissors
+function playRound(playerInput){
+    computerInput = getComputerChoice();
     let outcome;
     if((computerInput == "rock" && playerInput == "rock")|| (computerInput == "paper" && playerInput == "paper") || (computerInput == "scissors" && playerInput == "scissors")){
-        console.log("It's a tie!");
         outcome = "tie";
     }
     else if(computerInput == "rock" && playerInput == "paper"){
@@ -49,6 +55,35 @@ function playRound(computerInput, playerInput){
     return outcome;
 }
 
+function updateGame(roundOutcome){
+    const roundContainer = document.querySelector('.round-result');
+    const finalContainer = document.querySelector('.final-result');
+
+    if(roundOutcome == "lose"){
+        computerScore++;
+        let content = document.createElement('div'); 
+        roundContainer.appendChild(content);
+        content.textContent = 'Computer wins. Computer score: ' + computerScore + '. Player score: ' + playerScore + '.';
+    }
+    else if(roundOutcome == "win"){
+        playerScore++;
+        let content = document.createElement('div'); 
+        roundContainer.appendChild(content);
+        content.textContent = 'You win. Computer score: ' + computerScore + '. Player score: ' + playerScore + '.';
+    }
+    else{
+        let content = document.createElement('div'); 
+        roundContainer.appendChild(content);
+        content.textContent = 'Tie. Computer score: ' + computerScore + '. Player score: ' + playerScore + '.';
+    }
+    if(computerScore == 5 || playerScore ==5){
+        finalContainer.textContent = 'Game over. Final computer score: ' + computerScore + '. Final player score: ' + playerScore + '.';
+        document.getElementById("button-container").style.visibility = "hidden";
+    }
+    
+}
+
+/* old function that played 5 rounds in a row that was necessary when there was no button UI
 function game(){
     currentPlayerInput = "";
     currentComputerInput = "";
@@ -85,3 +120,4 @@ function game(){
         console.log("You win");
     }
 }
+*/
